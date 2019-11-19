@@ -33,7 +33,7 @@ create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_customer_consignee (
 location '/1902_g1_nsshop/ods/ods_nshop_02_customer_consignee/';
 
 -- 订单表
-create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders (
+create external table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders (
  order_id string COMMENT '订单ID(时间+商品ID+4位随机)',
  customer_id string COMMENT '下单用户ID',
  order_status TINYINT COMMENT '订单状态',
@@ -55,10 +55,11 @@ create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders (
  receive_time bigint  COMMENT '收货时间'
 ) partitioned by (bdp_day string)
 row format delimited fields terminated by ","
+LINES TERMINATED BY '\n'
 location '/1902_g1_nsshop/ods/ods_nshop_02_orders/';
 
 -- 订单详情表
-create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_order_detail(
+create external table if not exists 1902_g1_ods_nsshop.ods_nshop_02_order_detail(
  order_detail_id string COMMENT '订单详情表ID',
  order_id string COMMENT '订单表ID',
  product_id string COMMENT '订单商品ID',
@@ -72,10 +73,11 @@ create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_order_detail(
  order_detail_ctime bigint COMMENT '下单时间'
 )partitioned by (bdp_day string)
 row format delimited fields terminated by ","
+LINES TERMINATED BY '\n'
 location '/1902_g1_nsshop/ods/ods_nshop_02_order_detail/';
 
 -- 订单支付记录表
-create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders_pay_records (
+create external table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders_pay_records (
  pay_id string COMMENT '支付记录ID',
  order_id string COMMENT '订单ID',
  customer_id string COMMENT '用户ID',
@@ -87,4 +89,5 @@ create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders_pay_records (
  pay_ctime bigint  COMMENT '创建时间'
 )partitioned by (bdp_day string)
 row format delimited fields terminated by ","
+LINES TERMINATED BY '\n'
 location '/1902_g1_nsshop/ods/ods_nshop_02_orders_pay_records/';

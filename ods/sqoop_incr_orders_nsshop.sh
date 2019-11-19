@@ -14,4 +14,4 @@ tablename='order_'+bdp_day
 --query 'SELECT * FROM orders WHERE FROM_UNIXTIME(order_ctime/1000,"%Y%m%d")='${bdp_day}' and $CONDITIONS' 
 
 
-/home/framework/hive-2.1.1/bin/hive -e "alter table ods_nshop.ods_nshop_02_orders add partition(bdp_day='${bdp_day}')"
+/home/framework/hive-2.1.1/bin/hive -e "alter table 1902_g1_ods_nsshop.ods_nshop_02_orders add partition(bdp_day='${bdp_day}')"
