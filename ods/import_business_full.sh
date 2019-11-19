@@ -18,5 +18,3 @@ sqoop import "-Dorg.apache.sqoop.splitter.allow_text_splitter=true" \
 --hive-overwrite \
 --hive-table 1902_lp_ods_nshop.ods_nshop_02_customer_consignee \
 -m 10
-
-# 增量

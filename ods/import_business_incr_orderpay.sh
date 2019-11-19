@@ -8,7 +8,7 @@ bdp_day=20191102
 --username root \
 --password 12345678 \
 --delete-target-dir \
---target-dir /data/nshop/ods/ods_nshop_02_orders_pay_records/bdp_day=${bdp_day} \
+--target-dir /data/liupei/nshop/ods/ods_nshop_02_orders_pay_records/bdp_day=${bdp_day} \
 --num-mappers 1 \
 --query 'SELECT * FROM orders_pay_records WHERE FROM_UNIXTIME(pay_ctime/1000,"%Y%m%d")='${bdp_day}' and $CONDITIONS' 
 

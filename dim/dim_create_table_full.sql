@@ -7,7 +7,7 @@ drop table if exists 1902_lp_dim_nshop.dim_pub_date;
 drop table if exists 1902_lp_dim_nshop.dim_pub_comm;
 
 
-create table if not exists 1902_lp_dim_nshop.dim_pub_category (
+create external table if not exists 1902_lp_dim_nshop.dim_pub_category (
  category_code string COMMENT '分类编码',
  category_name string COMMENT '分类名称',
  category_parent_id string COMMENT '父分类ID',
@@ -16,7 +16,7 @@ create table if not exists 1902_lp_dim_nshop.dim_pub_category (
 )
 location '/data/liupei/nshop/dim/dim_pub_category/';
 
-create table if not exists  1902_lp_dim_nshop.dim_pub_supplier(
+create external table if not exists  1902_lp_dim_nshop.dim_pub_supplier(
  supplier_code string COMMENT '供应商编码',
  supplier_name string COMMENT '供应商名称',
  supplier_type TINYINT  COMMENT '供应商类型：1.自营，2.官方 3其他',
@@ -25,7 +25,7 @@ create table if not exists  1902_lp_dim_nshop.dim_pub_supplier(
 )
 location '/data/liupei/nshop/dim/dim_pub_supplier/';
 
-create table if not exists 1902_lp_dim_nshop.dim_pub_product(
+create external table if not exists 1902_lp_dim_nshop.dim_pub_product(
   product_code string COMMENT '商品ID(分类编码+供应商编码+编号)',
   product_name string COMMENT '商品名称',
   product_remark string  COMMENT '商品描述',
@@ -48,7 +48,7 @@ create table if not exists 1902_lp_dim_nshop.dim_pub_product(
 )
 location '/data/liupei/nshop/dim/dim_pub_product/';
 
-create table if not exists 1902_lp_dim_nshop.dim_pub_page (
+create external table if not exists 1902_lp_dim_nshop.dim_pub_page (
  page_code string COMMENT '页面编码',
  page_remark string COMMENT '页面描述',
  page_type string COMMENT '页面类型(1:导航页 2：分类页 3：店铺页 4：产品页)',
@@ -57,7 +57,7 @@ create table if not exists 1902_lp_dim_nshop.dim_pub_page (
 )
 location '/data/liupei/nshop/dim/dim_pub_page/';
 
-create table if not exists 1902_lp_dim_nshop.dim_pub_area (
+create external table if not exists 1902_lp_dim_nshop.dim_pub_area (
  region_code string COMMENT '地区编码 如110105  | 130406 ',
  region_code_desc string COMMENT '地区编码 如朝阳区 | 峰峰矿区',
  region_city string COMMENT '地区编码 如1101 北京市朝阳区 | 1304 邯郸',
@@ -67,7 +67,7 @@ create table if not exists 1902_lp_dim_nshop.dim_pub_area (
 )
 location '/data/liupei/nshop/dim/dim_pub_area/';
 
-create table if not exists 1902_lp_dim_nshop.dim_pub_date (
+create external table if not exists 1902_lp_dim_nshop.dim_pub_date (
 	date_day string COMMENT '日期：yyyyMMdd 如20190520',
 	date_day_desc string COMMENT '日期格式：yyyy年MM月dd日 如2019年05月20日',
 	date_day_month string COMMENT '日期：20 本月第几天 如2019年5月20日为5月第20天',
@@ -85,7 +85,7 @@ create table if not exists 1902_lp_dim_nshop.dim_pub_date (
 )
 location '/data/liupei/nshop/dim/dim_pub_date/';
 
-create table if not exists 1902_lp_dim_nshop.dim_pub_comm (
+create external table if not exists 1902_lp_dim_nshop.dim_pub_comm (
   dim_type string COMMENT '字典类型',
   dim_code string COMMENT '字典编码',
   dim_remark string COMMENT '字典描述',
