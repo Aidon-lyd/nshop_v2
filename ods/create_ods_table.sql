@@ -54,6 +54,7 @@ create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders (
  shipping_time bigint  COMMENT '发货时间',
  receive_time bigint  COMMENT '收货时间'
 ) partitioned by (bdp_day string)
+row format delimited fields terminated by ","
 location '/1902_g1_nsshop/ods/ods_nshop_02_orders/';
 
 -- 订单详情表
@@ -70,6 +71,7 @@ create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_order_detail(
  is_activity bigint COMMENT '1:参加活动|0：没有参加活动',
  order_detail_ctime bigint COMMENT '下单时间'
 )partitioned by (bdp_day string)
+row format delimited fields terminated by ","
 location '/1902_g1_nsshop/ods/ods_nshop_02_order_detail/';
 
 -- 订单支付记录表
@@ -84,23 +86,5 @@ create table if not exists 1902_g1_ods_nsshop.ods_nshop_02_orders_pay_records (
  pay_amount double COMMENT '支付金额',
  pay_ctime bigint  COMMENT '创建时间'
 )partitioned by (bdp_day string)
+row format delimited fields terminated by ","
 location '/1902_g1_nsshop/ods/ods_nshop_02_orders_pay_records/';
-
--- DataX实战案例
-create table if not exists 1902_g1_ods_nsshop.ods_02_customer_datax (
- customer_id string COMMENT '用户ID',
- customer_login string COMMENT '用户登录名',
- customer_nickname string COMMENT '用户名(昵称)',
- customer_name string COMMENT '用户真实姓名',
- customer_pass string COMMENT '用户密码',
- customer_mobile string COMMENT '用户手机',
- customer_idcard string COMMENT '身份证',
- customer_gender TINYINT COMMENT '性别：1男 0女',
- customer_birthday string COMMENT '出生年月',
- customer_email string COMMENT '用户邮箱',
- customer_natives string COMMENT '所在地区',
- customer_ctime bigint COMMENT '创建时间',
- customer_utime bigint COMMENT '修改时间'
-)row format delimited
-fields terminated by ","
-location '/1902_g1_nsshop/ods/ods_02_customer_datax/';
