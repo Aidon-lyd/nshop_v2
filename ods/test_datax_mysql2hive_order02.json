@@ -1,0 +1,155 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 3
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "writeMode": "insert",
+                        "username": "root",
+                        "password": "12345678",
+                        "column": [
+                      "order_id",
+                      "customer_id",
+                      "order_status",
+                      "customer_ip",
+                      "customer_longitude",
+                      "customer_latitude",
+                      "customer_areacode",
+                      "consignee_name",
+                      "consignee_mobile",
+                      "consignee_zipcode",
+                      "pay_type",
+                      "pay_code",
+                      "pay_nettype",
+                      "district_money",
+                      "shipping_money",
+                      "payment_money",
+                      "order_ctime",
+                      "shipping_time",
+                      "receive_time"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "orders"
+                                ],
+                                "jdbcUrl": [
+     "jdbc:mysql://10.0.88.245:3306/nshop"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "hdfswriter",
+                    "parameter": {
+                        "defaultFS": "hdfs://qf",
+                        "hadoopConfig": {
+                        "dfs.nameservices": "qf",
+                        "dfs.ha.namenodes.qf": "nn1,nn2",
+                        "dfs.namenode.rpc-address.qf.nn1": "node245:9000",
+                        "dfs.namenode.rpc-address.qf.nn2": "node246:9000",
+                "dfs.client.failover.proxy.provider.qf": "org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider"
+        },
+			"fileType": "text",
+                        "path": "/1902_g1_nsshop/ods/ods_nshop_02_orders",
+                        "fileName": "ods_02_customer_datax",
+                        "column": [
+                            {
+                                "name": "order_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "customer_id",
+                                "type": "string"
+                            },
+                               {
+                                "name": "order_status",
+                                "type": "tinyint"
+                            },
+                            {
+                                "name": "customer_ip",
+                                "type": "string"
+                            },
+
+			   			 {
+                                "name": "customer_longitude",
+                                "type": "string"
+                            },
+                            {
+                                "name": "customer_latitude",
+                                "type": "string"
+                            },
+			    		{
+                                "name": "customer_areacode",
+                                "type": "string"
+                            },
+                            {
+                                "name": "consignee_name",
+                                "type": "string"
+                            },
+			    {
+                                "name": "consignee_mobile",
+                                "type": "string"
+                            },
+                            {
+                                "name": "consignee_zipcode",
+                                "type": "string"
+
+                            },
+                            {
+                                "name": "pay_type",
+                                "type": "string"
+                            },
+			    {
+                                "name": "pay_code",
+                                "type": "string"
+                            },
+                            {
+                                "name": "pay_nettype",
+                                "type": "string"
+                            },
+                            {
+                            	"name": "district_money",
+                            	"type": "double"
+                            },
+                            {
+                            	"name": "shipping_money",
+                            	"type": "double"
+                            },
+                            {
+                            	"name": "payment_money",
+                            	"type": "double"
+                            },
+                            {
+                            	"name": "order_ctime",
+                            	"type":	"string"
+                            },
+                            {
+                            	"name": "shipping_time",
+                            	"type": "bigint"
+                            },
+                            {
+                            	"name": "receive_time",
+                            	"type": "bigint"
+                            }
+
+                        ],
+                        "writeMode": "append",
+                        "fieldDelimiter": ","
+                    }
+                }
+            }
+        ]
+    }
+}
