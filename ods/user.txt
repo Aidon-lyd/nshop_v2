@@ -1,0 +1,10 @@
+#Í¬²½date_dim
+sqoop import \
+--connect jdbc:mysql://node242:3306/nshop \
+--username root \
+--password 12345678 \
+--table date_dim \
+--hive-import \
+--hive-overwrite \
+--hive-table dim_nshop.dim_pub_date \
+-m 1
