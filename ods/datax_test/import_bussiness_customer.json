@@ -1,0 +1,140 @@
+{
+    "job": {
+        "setting": {
+            "speed": {
+                 "channel": 3
+            },
+            "errorLimit": {
+                "record": 0,
+                "percentage": 0.02
+            }
+        },
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "root",
+                        "password": "12345678",
+                        "column": [
+                          "customer_id",
+		  	  "customer_login",
+ 			  "customer_nickname",
+ 		 	  "customer_name",
+ 			  "customer_pass",
+		 	  "customer_mobile",
+			  "customer_idcard",
+			  "customer_gender",
+ 		 	  "customer_birthday",
+			  "customer_age",
+			  "customer_age_range",
+ 			  "customer_email",
+ 		 	  "customer_natives",
+		 	  "customer_ctime",
+			  "customer_utime",
+			  "customer_device_num"
+                        ],
+                        "connection": [
+                            {
+                                "table": [
+                                    "customer"
+                                ],
+                                "jdbcUrl": [
+     "jdbc:mysql://10.0.88.245:3306/nshop"
+                                ]
+                            }
+                        ]
+                    }
+                },
+               "writer": {
+                    "name": "hdfswriter",
+                    "parameter": {
+                        "defaultFS": "hdfs://node246:9000",
+                        "hadoopConfig": {
+                        "dfs.nameservices": "qf",
+                        "dfs.ha.namenodes.hdfsCluster": "nn1,nn2",
+                        "dfs.namenode.rpc-address.hdfsCluster.nn1": "node245:9000",
+                        "dfs.namenode.rpc-address.hdfsCluster.nn2": "node246:9000",
+                "dfs.client.failover.proxy.provider.hdfsCluster":
+        "org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider"
+        },
+			"fileType": "text",
+                        "path": "/data/liupei_datax/nshop/ods/ods_02_customer_datax",
+                        "fileName": "ods_02_customer_datax",
+                        "column": [
+                            {
+                                "name": "customer_id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "customer_nickname",
+                                "type": "string"
+                            },
+                               {
+                                "name": "customer_login",
+                                "type": "string"
+                            },
+                            {
+                                "name": "customer_name",
+                                "type": "string"
+                            },
+
+			   			 {
+                                "name": "customer_pass",
+                                "type": "string"
+                            },
+                            {
+                                "name": "customer_mobile",
+                                "type": "string"
+                            },
+			    		{
+                                "name": "customer_idcard",
+                                "type": "string"
+                            },
+                            {
+                                "name": "customer_gender",
+                                "type": "tinyint"
+                            },
+			    {
+                                "name": "customer_birthday",
+                                "type": "string"
+                            },
+			    {
+			    	"name": "customer_age",
+				"type": "tinyint"
+			    },
+			    {
+			    	"name": "customer_age_range",
+				"type": "string"
+			    },
+                            {
+                                "name": "customer_email",
+                                "type": "string"
+
+                            },
+                            {
+                                "name": "customer_natives",
+                                "type": "string"
+                            },
+			    {
+                                "name": "customer_ctime",
+                                "type": "bigint"
+                            },
+                            {
+                                "name": "customer_utime",
+                                "type": "bigint"
+                            },
+			    {
+			    	"name": "customer_device_num",
+				"type": "string"
+			    }
+                        ],
+                        "writeMode": "append",
+                        "fieldDelimiter": ","
+                    }
+                }
+            }
+        ]
+    }
+}
+
