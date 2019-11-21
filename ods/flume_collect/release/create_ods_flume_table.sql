@@ -16,4 +16,10 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 stored as textfile
 location '/1902_g1_nsshop/ods/release/';
 
-alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191119');
+alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191103');
+alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191104');
+alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191105');
+alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191106');
+alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191107');
+alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191108');
+alter table 1902_g1_ods_nsshop.ods_02_releasedatas add partition (bdp_day='20191109');
